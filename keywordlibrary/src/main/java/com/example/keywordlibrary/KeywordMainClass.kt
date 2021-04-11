@@ -88,14 +88,14 @@ class KeywordMainClass : ConstraintLayout {
             recyclerParams.addRule(RelativeLayout.ALIGN_PARENT_TOP)
 
             val actvParams = RelativeLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
             )
 
             val checkParams = RelativeLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
             )
-            actvParams.addRule(RelativeLayout.ALIGN_PARENT_START, RelativeLayout.ALIGN_PARENT_BOTTOM)
-            checkParams.addRule(RelativeLayout.ALIGN_PARENT_END, RelativeLayout.ALIGN_PARENT_BOTTOM)
+            actvParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+            checkParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
 
             addView(keywordsRV, recyclerParams)
             addView(keywordCheck, checkParams)
