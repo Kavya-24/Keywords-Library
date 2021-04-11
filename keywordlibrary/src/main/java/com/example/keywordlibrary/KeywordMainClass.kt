@@ -5,9 +5,8 @@ import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
-import android.widget.AutoCompleteTextView
-import android.widget.ImageView
-import android.widget.TextView
+import android.view.ViewGroup
+import android.widget.*
 import androidx.annotation.Nullable
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -70,23 +69,54 @@ class KeywordMainClass : ConstraintLayout {
             keywordCheck.id = R.id.iv_check
             keywordACTV.id = R.id.actv_keyword
 
-
-            //Wrap up with height and width
-            val constraintParams = ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.MATCH_PARENT,
-                ConstraintLayout.LayoutParams.MATCH_PARENT
+            val featureRV = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
             )
 
-            Log.e(TAG, "In Keyword main class with constraintParams as $constraintParams")
 
-            addView(keywordCheck)
-            addView(keywordsRV)
-            addView(keywordACTV)
 
-//            parentConstraintLayout.addView(keywordACTV)
-//            parentConstraintLayout.addView(keywordsRV)
-//            parentConstraintLayout.addView(keywordCheck)
+            val featureACTV = RelativeLayout.LayoutParams(
+                ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            featureACTV.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+            featureACTV.addRule(RelativeLayout.ALIGN_PARENT_START)
+
+
+            val featureCheck = RelativeLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+
+            featureCheck.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+            featureCheck.addRule(RelativeLayout.ALIGN_PARENT_END)
+
+
+
+
+            print("In init of class")
+            Log.e("IN CLASS", featureRV.toString())
+
+            //Add view to parent
+            addView(keywordsRV, featureRV)
+            addView(keywordACTV, featureACTV)
+            addView(keywordCheck, featureCheck)
+
+
+            //Wrap up with height and width
+//            val constraintParams = ConstraintLayout.LayoutParams(
+//                ConstraintLayout.LayoutParams.MATCH_PARENT,
+//                ConstraintLayout.LayoutParams.MATCH_PARENT
+//            )
 //
+//            Log.e(TAG, "In Keyword main class with constraintParams as $constraintParams")
+//
+//            addView(keywordCheck)
+//            addView(keywordsRV)
+//            addView(keywordACTV)
+//
+////            parentConstraintLayout.addView(keywordACTV)
+////            parentConstraintLayout.addView(keywordsRV)
+////            parentConstraintLayout.addView(keywordCheck)
+////
 //            addView(parentConstraintLayout, constraintParams)
 
 
