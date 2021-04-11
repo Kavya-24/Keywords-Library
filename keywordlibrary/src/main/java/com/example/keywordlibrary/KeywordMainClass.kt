@@ -76,37 +76,42 @@ class KeywordMainClass : ConstraintLayout {
             )
 
             Log.e(TAG, "In Keyword main class with constraintParams as $constraintParams")
+
+            parentConstraintLayout.addView(keywordACTV)
+            parentConstraintLayout.addView(keywordsRV)
+            parentConstraintLayout.addView(keywordCheck)
+
             addView(parentConstraintLayout, constraintParams)
 
 
-            val recyclerParams = ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.MATCH_PARENT,
-                ConstraintLayout.LayoutParams.WRAP_CONTENT
-            )
-            recyclerParams.topToTop = constraintParams.topToTop
-            addView(keywordsRV, recyclerParams)
-
-
-            val actvParams = ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.MATCH_PARENT,
-                ConstraintLayout.LayoutParams.WRAP_CONTENT
-            )
-
-            val checkParams = ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.WRAP_CONTENT,
-                ConstraintLayout.LayoutParams.WRAP_CONTENT
-            )
-
-
-            actvParams.topToBottom = recyclerParams.topToBottom
-
-            checkParams.topToBottom = actvParams.bottomMargin
-            checkParams.endToEnd = constraintParams.endToEnd
-            checkParams.startToStart = constraintParams.startToStart
-
-
-            addView(keywordACTV, actvParams)
-            addView(keywordCheck, checkParams)
+//            val recyclerParams = ConstraintLayout.LayoutParams(
+//                ConstraintLayout.LayoutParams.MATCH_PARENT,
+//                ConstraintLayout.LayoutParams.WRAP_CONTENT
+//            )
+//            recyclerParams.topToTop = constraintParams.topToTop
+//            addView(keywordsRV, recyclerParams)
+//
+//
+//            val actvParams = ConstraintLayout.LayoutParams(
+//                ConstraintLayout.LayoutParams.MATCH_PARENT,
+//                ConstraintLayout.LayoutParams.WRAP_CONTENT
+//            )
+//
+//            val checkParams = ConstraintLayout.LayoutParams(
+//                ConstraintLayout.LayoutParams.WRAP_CONTENT,
+//                ConstraintLayout.LayoutParams.WRAP_CONTENT
+//            )
+//
+//
+//            actvParams.topToBottom = recyclerParams.topToBottom
+//
+//            checkParams.topToBottom = actvParams.bottomMargin
+//            checkParams.endToEnd = constraintParams.endToEnd
+//            checkParams.startToStart = constraintParams.startToStart
+//
+//
+//            addView(keywordACTV, actvParams)
+//            addView(keywordCheck, checkParams)
 
 
         } catch (e: Exception) {
