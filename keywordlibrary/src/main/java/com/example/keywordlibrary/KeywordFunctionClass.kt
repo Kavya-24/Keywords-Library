@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.widget.AutoCompleteTextView
 import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,7 +21,7 @@ class KeywordFunctionClass private constructor(builder: Builder) : OnKeywordClic
     private val mLayoutInflater: LayoutInflater
     private val context: Context
 
-    private val parentView: ConstraintLayout?
+    private val parentView: LinearLayout?
     private val recyclerView: RecyclerView?
     private val autoCompleteTextView: AutoCompleteTextView?
     private val imageView: ImageView?
@@ -122,7 +123,7 @@ class KeywordFunctionClass private constructor(builder: Builder) : OnKeywordClic
         val context: Context,
         featureView: KeywordMainClass
     ) {
-        val parentView: ConstraintLayout
+        val parentView: LinearLayout
         val recyclerView: RecyclerView
         val imageView: ImageView
         val autoCompleteTextView: AutoCompleteTextView
