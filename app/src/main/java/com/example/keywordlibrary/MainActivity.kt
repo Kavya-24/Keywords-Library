@@ -28,8 +28,11 @@ class MainActivity : AppCompatActivity() {
         feature = findViewById(R.id.activityMainkeywordFeature)
         //Initialize
 
+        Log.e(TAG, "In main activity with feature as $feature")
 
-        keywordFunction = KeywordFunctionClass.Builder(context, feature).build()
+        keywordFunction = KeywordFunctionClass.Builder(context, feature)
+            .setACTVHintText(resources.getString(R.string.smile))
+            .build()
 
         keywordTextView = feature.keywordACTV
         keywordButton = feature.keywordCheck
@@ -77,14 +80,11 @@ class MainActivity : AppCompatActivity() {
                 mList.add(keywordTextView.text.toString())
                 Log.e(TAG, "\nIn main activity with query with mList as $mList")
 
-                keywordFunction.addKeywords(mList,mFeatures)
+                keywordFunction.addKeywords(mList, mFeatures)
                 keywordTextView.text = null
 
             }
         }
-
-
-
 
 
     }

@@ -53,6 +53,7 @@ class KeywordFunctionClass private constructor(builder: Builder) : OnKeywordClic
 
         try {
 
+            Log.e(TAG, "In try for adding words $mList")
 
             //Instantiate the adapter
             val mAdapter = KeywordAdapter(mFeatures, this)
@@ -123,6 +124,8 @@ class KeywordFunctionClass private constructor(builder: Builder) : OnKeywordClic
         val context: Context,
         featureView: KeywordMainClass
     ) {
+
+        private val TAG = Builder::class.java.simpleName
         val parentView: LinearLayout
         val recyclerView: RecyclerView
         val imageView: ImageView
@@ -150,6 +153,7 @@ class KeywordFunctionClass private constructor(builder: Builder) : OnKeywordClic
 
 
         fun setACTVHintText(hintText: String): Builder {
+            Log.e(TAG, "In set hint text")
             this.hintText = hintText
             return this
         }
@@ -189,14 +193,19 @@ class KeywordFunctionClass private constructor(builder: Builder) : OnKeywordClic
 
         //Default
         fun build(): KeywordFunctionClass {
+            Log.e(TAG, "In build of Builder Class")
+
             return KeywordFunctionClass(this)
         }
 
         init {
+            Log.e(TAG, "In init of Builder Class")
+
             parentView = featureView
             recyclerView = featureView.keywordsRV
             imageView = featureView.keywordCheck
             autoCompleteTextView = featureView.keywordACTV
+            Log.e(TAG, "In init end of Builder Class")
 
 
         }
@@ -207,6 +216,7 @@ class KeywordFunctionClass private constructor(builder: Builder) : OnKeywordClic
      */
     init {
 
+        Log.e(TAG, "In init of Fun Class")
         context = builder.context
         parentView = builder.parentView
         recyclerView = builder.recyclerView
@@ -228,6 +238,8 @@ class KeywordFunctionClass private constructor(builder: Builder) : OnKeywordClic
         //Parameters for the recycler view
         layout = builder.layout
         keywordList = builder.keywordList
+
+        Log.e(TAG, "In init end of Fun Class")
 
     }
 

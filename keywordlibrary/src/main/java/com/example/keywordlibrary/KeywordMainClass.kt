@@ -57,9 +57,10 @@ class KeywordMainClass : LinearLayout {
     @SuppressLint("Recycle")
     private fun init(@Nullable attrs: AttributeSet?) {
 
+        Log.e(TAG, "In init")
         try {
 
-
+            Log.e(TAG, "In try")
             parentConstraintLayout = LinearLayout(context)
             parentConstraintLayout.id = R.id.container_keyword_container
 
@@ -100,6 +101,7 @@ class KeywordMainClass : LinearLayout {
             addView(keywordACTV, featureACTV)
             addView(keywordCheck, featureCheck)
 
+            Log.e(TAG, "In end of try")
 
         } catch (e: Exception) {
             Log.e(TAG, "In init exception with ${e.cause} and ${e.message}")
