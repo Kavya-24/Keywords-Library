@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.widget.AutoCompleteTextView
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -69,6 +70,7 @@ class KeywordMainClass : ConstraintLayout {
             keywordCheck.id = R.id.iv_check
             keywordACTV.id = R.id.actv_keyword
 
+
             //Wrap up with height and width
             val constraintParams = ConstraintLayout.LayoutParams(
                 ConstraintLayout.LayoutParams.MATCH_PARENT,
@@ -77,11 +79,15 @@ class KeywordMainClass : ConstraintLayout {
 
             Log.e(TAG, "In Keyword main class with constraintParams as $constraintParams")
 
-            parentConstraintLayout.addView(keywordACTV)
-            parentConstraintLayout.addView(keywordsRV)
-            parentConstraintLayout.addView(keywordCheck)
+            addView(keywordCheck)
+            addView(keywordsRV)
+            addView(keywordACTV)
 
-            addView(parentConstraintLayout, constraintParams)
+//            parentConstraintLayout.addView(keywordACTV)
+//            parentConstraintLayout.addView(keywordsRV)
+//            parentConstraintLayout.addView(keywordCheck)
+//
+//            addView(parentConstraintLayout, constraintParams)
 
 
 //            val recyclerParams = ConstraintLayout.LayoutParams(
