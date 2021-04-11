@@ -1,0 +1,3 @@
+rootProject.name='KeywordLibrary'
+include ':app'
+include ':keywordlibrary'
