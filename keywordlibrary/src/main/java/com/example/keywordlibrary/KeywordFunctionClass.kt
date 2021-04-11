@@ -41,6 +41,10 @@ class KeywordFunctionClass private constructor(builder: Builder) : OnKeywordClic
     private val keywordList: MutableList<String>?
     var childCount = 0
 
+    fun clearKeywordList() {
+        keywordList?.clear()
+    }
+
     fun addKeywords(mList: MutableList<String>, mFeatures: Features) {
 
         Log.e(TAG, "In add keywords for list $mList")
@@ -55,7 +59,7 @@ class KeywordFunctionClass private constructor(builder: Builder) : OnKeywordClic
             recyclerView!!.adapter = mAdapter
             mAdapter.notifyDataSetChanged()
 
-        } catch (e: Exception){
+        } catch (e: Exception) {
             Log.e(TAG, "In exception for add keyword ${e.message} and ${e.cause}")
         }
 

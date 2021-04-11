@@ -35,4 +35,11 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    /**
+     * Library added here (Make sure to check for constraint layout)
+     */
+    implementation 'com.github.Kavya-24:Keywords-Library:v0.0.1'
+
+
 }
