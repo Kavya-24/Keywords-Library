@@ -5,15 +5,12 @@ import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
 import android.util.Log
-import android.view.ViewGroup
 import android.widget.AutoCompleteTextView
 import android.widget.ImageView
-import android.widget.RelativeLayout
 import androidx.annotation.Nullable
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import java.lang.Exception
 
 class KeywordMainClass : ConstraintLayout {
 
@@ -73,39 +70,48 @@ class KeywordMainClass : ConstraintLayout {
             keywordACTV.id = R.id.actv_keyword
 
             //Wrap up with height and width
-            val constraintParams = RelativeLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+            val constraintParams = ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.MATCH_PARENT
             )
-            constraintParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE)
 
             Log.e(TAG, "In Keyword main class with constraintParams as $constraintParams")
             addView(parentConstraintLayout, constraintParams)
 
 
-            val recyclerParams = RelativeLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+            val recyclerParams = ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.WRAP_CONTENT
             )
-            recyclerParams.addRule(RelativeLayout.ALIGN_PARENT_TOP)
-
-            val actvParams = LayoutParams(
-                100, ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-
-            val checkParams = LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-//            actvParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
-//            checkParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
-
+            recyclerParams.topToTop = constraintParams.topToTop
             addView(keywordsRV, recyclerParams)
-            addView(keywordCheck, checkParams)
+
+
+            val actvParams = ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.WRAP_CONTENT,
+                ConstraintLayout.LayoutParams.WRAP_CONTENT
+            )
+
+            val checkParams = ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.WRAP_CONTENT,
+                ConstraintLayout.LayoutParams.WRAP_CONTENT
+            )
+
+
+            actvParams.topToBottom = recyclerParams.topToBottom
+            actvParams.startToStart = constraintParams.startToStart
+            actvParams.endToStart = checkParams.endToStart
+
+            checkParams.topToBottom = recyclerParams.topToBottom
+            checkParams.endToEnd = constraintParams.endToEnd
+            checkParams.endToStart = actvParams.endToStart
+
+
             addView(keywordACTV, actvParams)
+            addView(keywordCheck, checkParams)
 
 
-
-
-
-        } catch (e : Exception){
+        } catch (e: Exception) {
             Log.e(TAG, "In init exception with ${e.cause} and ${e.message}")
         }
     }
