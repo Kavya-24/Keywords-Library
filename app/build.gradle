@@ -39,7 +39,7 @@ dependencies {
     /**
      * Library added here (Make sure to check for constraint layout)
      */
-    implementation 'com.github.Kavya-24:Keywords-Library:v0.0.4'
+    implementation 'com.github.Kavya-24:Keywords-Library:v0.0.5'
 
 
 }

@@ -88,7 +88,7 @@ class KeywordMainClass : ConstraintLayout {
 
 
             val actvParams = ConstraintLayout.LayoutParams(
-                ConstraintLayout.LayoutParams.WRAP_CONTENT,
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
                 ConstraintLayout.LayoutParams.WRAP_CONTENT
             )
 
@@ -99,12 +99,10 @@ class KeywordMainClass : ConstraintLayout {
 
 
             actvParams.topToBottom = recyclerParams.topToBottom
-            actvParams.startToStart = constraintParams.startToStart
-            actvParams.endToStart = checkParams.endToStart
 
-            checkParams.topToBottom = recyclerParams.topToBottom
+            checkParams.topToBottom = actvParams.bottomMargin
             checkParams.endToEnd = constraintParams.endToEnd
-            checkParams.endToStart = actvParams.endToStart
+            checkParams.startToStart = constraintParams.startToStart
 
 
             addView(keywordACTV, actvParams)
